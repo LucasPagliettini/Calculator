@@ -1,7 +1,10 @@
 import React from 'react'
 import { View } from 'react-native'
 
-const index = ({size}) => {
+interface Props {
+  size: number
+}
+const index = ({size}: Props) => {
   return (
     <View style={{marginVertical: size}}/>
   )

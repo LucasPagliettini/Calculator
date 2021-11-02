@@ -5,6 +5,8 @@ import CircularButton from '../../components/CircularButton';
 import ButtonContainerRow from '../../components/ButtonContainerRow';
 import Space from '../../components/Space';
 import useCalulator from '../../hooks/useCalulator';
+import { colors } from '../../config/theme';
+import { operations } from '../../utils/values';
 
 const index = () => {
   const {
@@ -28,17 +30,17 @@ const index = () => {
       </Text>
       <Space size={10} />
       <ButtonContainerRow>
-        <CircularButton text={'AC'} onpress={clear} backgroundColor="#2D2D2D" />
+        <CircularButton text={'AC'} onpress={clear} backgroundColor={colors.darkGrey} />
         <CircularButton
           text={'+/-'}
           onpress={invertPlusMinues}
-          backgroundColor="#2D2D2D"
+          backgroundColor={colors.darkGrey}
         />
-        <CircularButton text={'del'} onpress={backSpace} backgroundColor="#2D2D2D" />
+        <CircularButton text={'del'} onpress={backSpace} backgroundColor={colors.darkGrey} />
         <CircularButton
-          text={'÷'}
+          text={operations.divide}
           onpress={operate}
-          backgroundColor="#FF9427"
+          backgroundColor={colors.orange}
         />
       </ButtonContainerRow>
       <Space size={10} />
@@ -47,9 +49,9 @@ const index = () => {
         <CircularButton text={'8'} onpress={numberBuilder} />
         <CircularButton text={'9'} onpress={numberBuilder} />
         <CircularButton
-          text={'X'}
+          text={operations.multiply}
           onpress={operate}
-          backgroundColor="#FF9427"
+          backgroundColor={colors.orange}
         />
       </ButtonContainerRow>
       <Space size={10} />
@@ -58,9 +60,9 @@ const index = () => {
         <CircularButton text={'5'} onpress={numberBuilder} />
         <CircularButton text={'6'} onpress={numberBuilder} />
         <CircularButton
-          text={'-'}
+          text={operations.subtract}
           onpress={operate}
-          backgroundColor="#FF9427"
+          backgroundColor={colors.orange}
         />
       </ButtonContainerRow>
       <Space size={10} />
@@ -69,9 +71,9 @@ const index = () => {
         <CircularButton text={'2'} onpress={numberBuilder} />
         <CircularButton text={'3'} onpress={numberBuilder} />
         <CircularButton
-          text={'+'}
+          text={operations.add}
           onpress={operate}
-          backgroundColor="#FF9427"
+          backgroundColor={colors.orange}
         />
       </ButtonContainerRow>
       <Space size={10} />
@@ -79,9 +81,9 @@ const index = () => {
         <CircularButton text={'0'} onpress={numberBuilder} width={180} />
         <CircularButton text={'.'} onpress={numberBuilder} />
         <CircularButton
-          text={'='}
+          text={operations.calculate}
           onpress={calculateResult}
-          backgroundColor="#FF9427"
+          backgroundColor={colors.orange}
         />
       </ButtonContainerRow>
       <Space size={10} />

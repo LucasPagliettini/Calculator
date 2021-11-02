@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import { operations } from '../utils/values';
 
 const useCalulator = () => {
   const [firstValue, setFirstValue] = useState('0');
@@ -23,7 +24,7 @@ const useCalulator = () => {
   };
 
   const clear = () => {
-    if (operation === '=') {
+    if (operation === operations.calculate) {
       setFirstValue('0');
       setOperation(null);
     } else if (firstValue !== '0') setFirstValue('0');
@@ -48,25 +49,25 @@ const useCalulator = () => {
   const finishCalc = (res: number) => {
     setFirstValue(res.toString());
     setSecondValue('0');
-    setOperation('=');
+    setOperation(operations.calculate);
   };
 
   const calculateResult = () => {
     let res: number;
     switch (operation) {
-      case '+':
+      case operations.add:
         res = parseFloat(secondValue) + parseFloat(firstValue);
         finishCalc(res);
         break;
-      case '-':
+      case operations.subtract:
         res = parseFloat(secondValue) - parseFloat(firstValue);
         finishCalc(res);
         break;
-      case 'X':
+      case operations.multiply:
         res = parseFloat(secondValue) * parseFloat(firstValue);
         finishCalc(res);
         break;
-      case '÷':
+      case operations.divide:
         res = parseFloat(secondValue) / parseFloat(firstValue);
         finishCalc(res);
         break;

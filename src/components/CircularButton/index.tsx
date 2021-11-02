@@ -1,5 +1,6 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
+import { colors } from '../../config/theme';
 import {styles} from './styles';
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
 const index = ({
   text,
   onpress,
-  backgroundColor = 'grey',
+  backgroundColor = colors.grey,
   width = 80,
 }: Props) => {
 
