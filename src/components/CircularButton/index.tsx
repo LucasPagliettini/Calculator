@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
-import { colors } from '../../config/theme';
+import {colors} from '../../config/theme';
 import {styles} from './styles';
 
 interface Props {
@@ -16,8 +16,6 @@ const index = ({
   backgroundColor = colors.grey,
   width = 80,
 }: Props) => {
-
-
   return (
     <TouchableOpacity
       activeOpacity={0.75}

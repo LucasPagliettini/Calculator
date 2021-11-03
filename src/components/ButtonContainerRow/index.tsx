@@ -1,20 +1,16 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
 
-const index = ({ children }: {children: any}) => {
-  return (
-    <View style={styles.container}>
-      {children}
-    </View>
-  )
-}
+const index = ({children}: {children: any}) => {
+  return <View style={styles.container}>{children}</View>;
+};
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '100%'
-  }
-})
+    width: '100%',
+  },
+});
 
-export default index
+export default index;

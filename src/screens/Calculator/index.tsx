@@ -5,8 +5,8 @@ import CircularButton from '../../components/CircularButton';
 import ButtonContainerRow from '../../components/ButtonContainerRow';
 import Space from '../../components/Space';
 import useCalulator from '../../hooks/useCalulator';
-import { colors } from '../../config/theme';
-import { operations } from '../../utils/values';
+import {colors} from '../../config/theme';
+import {operations} from '../../utils/values';
 
 const index = () => {
   const {
@@ -30,13 +30,21 @@ const index = () => {
       </Text>
       <Space size={10} />
       <ButtonContainerRow>
-        <CircularButton text={'AC'} onpress={clear} backgroundColor={colors.darkGrey} />
+        <CircularButton
+          text={'AC'}
+          onpress={clear}
+          backgroundColor={colors.darkGrey}
+        />
         <CircularButton
           text={'+/-'}
           onpress={invertPlusMinues}
           backgroundColor={colors.darkGrey}
         />
-        <CircularButton text={'del'} onpress={backSpace} backgroundColor={colors.darkGrey} />
+        <CircularButton
+          text={'del'}
+          onpress={backSpace}
+          backgroundColor={colors.darkGrey}
+        />
         <CircularButton
           text={operations.divide}
           onpress={operate}

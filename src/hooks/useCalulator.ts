@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { operations } from '../utils/values';
+import {operations} from '../utils/values';
 
 const useCalulator = () => {
   const [firstValue, setFirstValue] = useState('0');
@@ -13,14 +13,19 @@ const useCalulator = () => {
   };
 
   const backSpace = () => {
-    if(firstValue.length>1)
-    setFirstValue(firstValue.slice(0, -1))
-    else setFirstValue('0')
-  }
+    if (firstValue.length > 1) setFirstValue(firstValue.slice(0, -1));
+    else setFirstValue('0');
+  };
 
   const isSecondPoint = (currentValue: string, newValue: string) => {
     if (newValue === '.' && currentValue.includes('.')) return true;
     return false;
+  };
+
+  const removePosibleFinalPoint = (currentValue: string) => {
+    if (currentValue.substr(-1) === '.')
+      return currentValue.substr(0, currentValue.length - 1);
+    return currentValue;
   };
 
   const clear = () => {
@@ -28,7 +33,7 @@ const useCalulator = () => {
       setFirstValue('0');
       setOperation(null);
     } else if (firstValue !== '0') setFirstValue('0');
-    else if (secondValue !== '0') {
+    else {
       setSecondValue('0');
       setOperation(null);
     }
@@ -41,9 +46,12 @@ const useCalulator = () => {
   };
 
   const operate = (simbol: string) => {
-    setSecondValue(firstValue);
-    setOperation(simbol);
-    setFirstValue('0');
+    if (firstValue === '0') setOperation(simbol);
+    else {
+      setSecondValue(removePosibleFinalPoint(firstValue));
+      setOperation(simbol);
+      setFirstValue('0');
+    }
   };
 
   const finishCalc = (res: number) => {

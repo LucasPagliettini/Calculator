@@ -4,4 +4,4 @@ export const operations = {
   divide: '÷',
   multiply: 'X',
   calculate: '=',
-}
+};
